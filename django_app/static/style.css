@@ -1,0 +1,146 @@
+:root{
+  --bg:#070707;
+  --panel:#0f1114;
+  --muted:#9aa4b2;
+  --accent:#7c5cff;
+  --danger:#ff5f6d;
+  --success:#26d07b;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: linear-gradient(180deg,#030405 0%, #071218 60%, #0b0710 100%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:28px;
+}
+
+.app{
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:14px;
+  padding:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;fill:var(--accent);filter:drop-shadow(0 6px 12px rgba(124,92,255,0.12))}
+.brand h1{font-size:20px;margin:0}
+.model{font-size:13px;color:var(--muted)}
+
+.main{display:flex;gap:18px;flex-wrap:wrap}
+.left{flex:1 1 320px;min-width:280px}
+.right{flex:1.6 1 520px;min-width:320px}
+
+.dropzone{
+  background:linear-gradient(180deg, rgba(124,92,255,0.03), rgba(0,0,0,0.02));
+  border:1px dashed rgba(124,92,255,0.18);
+  padding:20px;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  min-height:220px;
+  transition:all .18s ease;
+  outline:none;
+}
+.dropzone:focus{box-shadow:0 0 0 4px rgba(124,92,255,0.07)}
+.dropzone.dragover{
+  border-color:rgba(124,92,255,0.6);
+  transform:translateY(-2px);
+  background: linear-gradient(180deg, rgba(124,92,255,0.05), rgba(124,92,255,0.02));
+}
+
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.hint{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}
+
+.controls{display:flex;gap:10px;align-items:center}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  color:inherit;
+  cursor:pointer;
+}
+.btn input{display:none}
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent), #4b8bff);
+  color:#061021;
+  border:none;
+  font-weight:600;
+  box-shadow:0 6px 20px rgba(124,92,255,0.12);
+}
+.btn:disabled{opacity:.5;cursor:default}
+
+.player-wrap{
+  background:var(--panel);
+  border-radius:12px;
+  padding:14px;
+  min-height:240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.preview{width:100%;height:100%;max-height:360px;border-radius:8px;background:#000;object-fit:contain;display:none}
+.no-video{
+  color:var(--muted);
+  text-align:center;
+  font-size:14px;
+}
+
+.result-card{
+  margin-top:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border-radius:12px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+.result-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.label{color:var(--muted);font-size:13px}
+.prediction{
+  font-weight:700;
+  padding:8px 12px;
+  border-radius:8px;
+  min-width:110px;
+  text-align:center;
+  letter-spacing:0.6px;
+  background:rgba(255,255,255,0.02);
+}
+.prediction.fake{background:linear-gradient(90deg,var(--danger), #ff8aa0);color:#fff}
+.prediction.real{background:linear-gradient(90deg,var(--success), #7ef7b4);color:#03160a}
+
+.confidence-row{display:flex;align-items:center;gap:12px;margin-top:12px}
+.confidence-bar-wrap{flex:1;background:rgba(255,255,255,0.04);height:12px;border-radius:8px;overflow:hidden}
+.confidence-bar{height:100%;width:0%;background:linear-gradient(90deg,#ffd66b,#ff6b6b);transition:width .4s ease}
+.confidence-text{min-width:54px;text-align:right;font-weight:600}
+
+.hidden{display:none}
+
+.progress-row{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+progress{width:100%;height:12px;border-radius:8px;overflow:hidden}
+
+.meta{margin-top:12px;color:var(--muted);font-size:13px}
+
+.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}

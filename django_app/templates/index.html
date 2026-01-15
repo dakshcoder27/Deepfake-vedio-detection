@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deepfake Detector - Frontend</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L20 8v6c0 4-3 8-8 8s-8-4-8-8V8l8-6z"/></svg>
+        <h1>Deepfake Detector</h1>
+      </div>
+      <div class="model">Model: <span class="model-name">model_90_acc_60_frames_final_data.pt</span></div>
+    </header>
+
+    <main class="main">
+      <section class="left">
+        <div id="dropzone" class="dropzone" tabindex="0">
+          <p class="muted">Drag & drop a video here</p>
+          <p class="muted small">or</p>
+          <div class="controls">
+            <label class="btn">
+              Choose file
+              <input id="fileInput" type="file" accept="video/*" />
+            </label>
+            <button id="analyzeBtn" class="btn primary" disabled>Analyze Video</button>
+          </div>
+
+          <p id="hint" class="hint">Supported: mp4 · webm · mov · mkv. Best: 5–60s low-compression clips.</p>
+        </div>
+
+        <div id="meta" class="meta" aria-live="polite"></div>
+      </section>
+
+      <section class="right">
+        <div class="player-wrap">
+          <video id="preview" class="preview" controls></video>
+          <div id="noVideo" class="no-video">No video selected</div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-row">
+            <div class="label">Result</div>
+            <div id="prediction" class="prediction">—</div>
+          </div>
+
+          <div id="confidenceRow" class="confidence-row hidden">
+            <div class="label">Confidence</div>
+            <div class="confidence-bar-wrap">
+              <div id="confidenceBar" class="confidence-bar"></div>
+            </div>
+            <div id="confidenceText" class="confidence-text">0%</div>
+          </div>
+
+          <div id="progressRow" class="progress-row hidden">
+            <div class="label">Upload</div>
+            <progress id="uploadProgress" value="0" max="100"></progress>
+            <div id="progressText" class="muted small">0%</div>
+          </div>
+
+          <div id="message" class="message muted"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Built for your deepfake detection project • Frontend only</footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
