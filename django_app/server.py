@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 
 # ----------------- Config -----------------
-MODEL_PATH = "model_90_acc_60_frames_final_data.pt"
+MODEL_PATH = "model_97_acc_60_frames_FF_data.pt"
 DEVICE = torch.device("cpu")   # FORCE CPU (you said no CUDA driver)
 ALLOWED_EXT = {'.mp4', '.mov', '.webm', '.mkv'}
 MAX_FILE_MB = 600
